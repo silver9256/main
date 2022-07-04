@@ -1,0 +1,12 @@
+db.sqlite3
+db.sqlite3-journal
+media
+static
+geckodriver.log
+*/__pycache__/
+*.pyc
+*.pot
+*.log
+.static
+*/__init__.py
+myApp/migrations/__init__.py

@@ -1,0 +1,19 @@
+{%extends 'nav_and_footer.html' %}
+
+{%block content%}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}">
+    <section> 
+        <ul>
+            <li><a href="{% url 'processor' %}" title="Processor"> <img src="{% static 'img/pic/1.png' %}" alt="Processor" ></a></li>
+
+            <li><a href="{% url 'graphics' %}" title="Graphics Card"> <img src="{% static 'img/pic/2.png' %}" alt="Graphics Card" ></a></li>
+
+            <li><a href="{% url 'storage' %}" title="Storage"> <img src="{% static 'img/pic/3.png' %}" alt="Storage" ></a></li>
+
+            <li><a href="{% url 'motherboard' %}" title="Motherboard"> <img src="{% static 'img/pic/4.png' %}" alt="Motherboard" ></a></li>
+
+            <li><a href="{% url 'ram' %}" title="Random Access Memory"> <img src="{% static 'img/pic/5.png' %}" alt="Random Access Memory" ></a></li>
+        </ul>   
+    </section>
+{%endblock%}

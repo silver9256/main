@@ -1,0 +1,29 @@
+{% extends 'nav_and_footer.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_form.css'%}">
+<body>
+	<div class="center">
+		<h1> Create user account</h1>
+		<form  method="POST">
+			{%csrf_token%}
+		  <p>
+		    <label for="a">Username: </label>
+		    <input id="a" type="text" name = 'username' >
+		  </p>
+		  <br>
+		  <p>
+		    <label for="b">Email: </label>
+		    <input id="b" type="text" name = 'email' pattern="[^ @]*@[^ @]*">
+		  </p>
+		  <br>
+		  <p>
+		    <label for="b">Career: </label>
+		    <input id="b" type="text" name = 'career'>
+		  </p>
+		  <br>
+		    <button type="submit"><p>Sign Up</p></button>
+		  <br>
+	  </div>
+	</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{%extends 'nav_and_footer.html' %}
+{%block content%}
+    <h1>Central Processing Unit</h1>
+    <section class="define">
+        
+        <div>
+            <img src="pic/cpu.png" alt="Mother Board" width="300px">
+        </div>
+        <div class="par">
+            <p>The processor is the brain of the computer. It performs calculation, 
+                input/output and the basic instructions that other components of 
+                the computer needs. 
+            </p>
+            <p>There are two popular processors for computer. These are the processors made by Intel and AMD.</p>
+            
+        </div>
+    </section>
+    <section class="define">
+        
+        <div class="par">
+            <p>AMD processor are mostly used for gaming for its numerous core inside the processor.</p>
+            <p>While Intel processor are commonly used in workstation because of its efficiency and compatibility when it comes to production software.</p>
+        </div>
+        <div>
+            <img src="pic/amd and intel.jpg" alt="Mother Board" width="300px">
+        </div>
+    </section>
+    <a href="{% url 'processor_page_2'%}"><button><p>Next Page</p></button></a>
+{%endblock%}

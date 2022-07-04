@@ -1,0 +1,36 @@
+{%extends 'nav_and_footer.html' %}
+
+{%block content%}
+{% load static %}
+    <h1>Motherboard</h1>
+    <section class="define">
+        
+        <div>
+            <img src="pic2/intel moth.jpg" alt="Mother Board" width="200px">
+        </div>
+        <div class="par">
+            <p>This computer part is where you connect all the basic components like the processor, video card, storage, power supply,etc.
+                One important thing that we need to remember is that motherboard differs depending on what processor you will use.
+                There are two popular motherboards. These are the intel and amd motherboard. 
+            </p>
+            
+        </div>
+    </section>
+    <section class="define">
+        
+        <div class="par">
+            <p>We can see its physical differences when it comes to processor socket.
+                Intel socket has pins inside the socket while amd only have holes for the pins of processor.
+                We should always be aware of this things because if you try to insert a intel processor into 
+                a AMD motherboard your bought computer parts will be break which also means that you waste 
+                your money. So, it is practical to be sure when we are buying computer. You can search the google
+                for the right parts for your computer build. 
+            </p>
+            
+        </div>
+        <div class="pics">
+            <img src="pic2/amd socket.jpg" alt="Mother Board" width="150px">
+            <img src="pic2/intel slot.jpg" alt="Mother Board" width="150px">
+        </div>
+    </section>
+{%endblock%}

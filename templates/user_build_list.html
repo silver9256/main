@@ -1,0 +1,50 @@
+{% extends 'nav_and_footer.html' %}
+
+{% block content %}
+
+<h1>Builder: {{User.username}}</h1>
+
+<form method="POST" name="Add_Build">
+  {% csrf_token %}
+  <button type="submit" id="addbuild"><a href="/createbuild/{{User.id}}/">Add Build<a/></button>
+</form>
+
+<form>
+  
+<table id="customers">
+  <tr>
+    <th>No</th>
+    <th>Budget</th>
+    <th>Processor</th>
+    <th>Mothebord</th>
+    <th>Storage</th>
+    <th>RAM</th>
+    <th>Graphics Card</th>
+    <th>Power Supply</th>
+    <th>Chassis</th>
+    <th>Fan</th>
+    <th>Date</th>
+  </tr>
+
+  {%for item in Build%}
+  <tr>
+    
+    <td>{{forloop.counter}}</td>
+    <td>{{item.computer_parts.id}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.computer_parts.processor}}</td>
+    <td>{{item.computer_parts.motherboard}}</td>
+    <td>{{item.computer_parts.storage}}</td>
+    <td>{{item.computer_parts.ram}}</td>
+    <td>{{item.computer_parts.graphicscard}}</td>
+    <td>{{item.computer_parts.powersupply}}</td>
+    <td>{{item.computer_parts.chassis}}</td>
+    <td>{{item.computer_parts.fan}}</td>
+    <td>{{item.date}}</td>
+    <td><center><button><a href="/edit/{{item.id}}">Edit</a></button>
+      <button><a href="/delete/{{item.id}}">Delete</a></button></center></td>
+  </tr>
+  {% endfor %}
+</form>
+
+{% endblock %}

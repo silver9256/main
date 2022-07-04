@@ -1,0 +1,33 @@
+{% extends 'nav_and_footer.html' %}
+{%block content%}
+    <h1>Graphics Card</h1>
+    <section class="define">
+        
+        <div>
+            <img src="pic/gpu.jpg.png" alt="Graphics Card" width="300px">
+        </div>
+        <div class="par">
+            <p>Graphics Card are responsible for the visuals of our computer. 
+                It helps the computer to display higher quality of information. Some processors have its own graphics processor to display and it is called integrated graphics while other processors needs a dedicated graphics processor.
+            </p>
+            
+        </div>
+    </section>
+
+    <section class="define">
+        
+        <div class="par">
+            <p>
+                One of the reason for you to buy a graphics is that your processor 
+                doesnt have integrated graphics or you want to upgrade your graphics experience. 
+                If you plan to buy one, there are two popular brands of graphics card and it is Nvidia and AMD.
+            </p>
+            <p> </p>
+        </div>
+        <div>
+            <img src="pic/nvidia and amd.jpg" alt="Graphics Card" width="300px">
+        </div>
+
+    </section>
+    <a href="{% url 'graphics_page_2'%}"><button><p>Next Page</p></button></a>
+{%endblock%}

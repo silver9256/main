@@ -1,0 +1,10 @@
+{% extends 'nav_and_footer.html' %}
+
+{% block content %}
+
+{% csrf_token %}
+
+{%include 'form_pc_parts.html'%}
+
+
+{% endblock %}

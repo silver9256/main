@@ -1,0 +1,35 @@
+{%extends 'nav_and_footer.html' %}
+
+{%block content%}
+{% load static %}
+    <h1>Storage (Hard Disk and Solid State Drive)</h1>
+    <section class="define">
+        
+        <div>
+            <img src="pic/hardisk.png" alt="Hard Disk" width="150px">
+        </div>
+        <div class="par">
+            <p>To install our favorites apps and games we need to have a place where we will store it.
+                In computer we have this thing called storage where we store our files and install software.
+                Back then, the common type of storage that is used for computers are called hard disk.
+                Its difference from the solid state drive is it has a spining disk which is prone to being 
+                broken if not given care. 
+            </p>
+        </div>
+    </section>
+    <section class="define">
+        
+        <div class="par">
+            <p>But nowadays, hard disk are used for extra storage and not for main storage where
+                you install the operating system because of its slow booting. Many PC users are now
+                using solid state state for their operating system and other application so it can 
+                open faster than hardrive.  
+            </p>
+            
+        </div>
+        <div>
+            <img src="pic2/ssd.png" alt="Mother Board" width="200px">
+        </div>
+    </section>
+    <a href="{% url 'storage_page_2' %}"><button><p>Next Page</p></button></a>
+{%endblock%}

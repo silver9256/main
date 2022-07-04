@@ -1,0 +1,158 @@
+<section id = "forms-and-result">
+<article class="form-1">
+    <form method="POST" id = "find-pc-survey" onchange="displayExpenses(), Compatibility(), displayToResult()">
+        {% csrf_token %}
+        <div class="header-form">
+            <h1>Find your PC</h1>
+            <p>These form will help you to know the right
+            computer parts according to your preferences. <span style="color: red;">Disclaimer: The parts that are suggested are based 
+                from availability in the market.</span>
+            </p>
+        </div>
+
+        <h1>Username: {{user.username}}</h1>
+        
+        <div>
+        
+        <label for="Budget">Budget:  </label>
+            <input type="text" min="10000.00" max="900000.0" name="budget_" id="budget"
+            onkeyup="budgetChecker(document.getElementById('budget').value)">
+        </div>
+
+        <div id = "processor-choice">
+            <legend>Choose a brand of Processor.</legend>
+            <label for="intel">
+                <input type="radio" name = "processor_" id = "intel" onclick="enableOthers(), hideAmd(), showIntel()" value="Intel">Intel
+            </label>
+            <label for="amd">
+                <input type="radio" name = "processor_" id = "amd" onclick="enableOthers(), showAmd(), hideIntel()" value="AMD">AMD
+            </label>
+        </div>
+
+        <div id = "model-processor">
+            <label for="model-processesor"> 
+                <select name="1model-processesor" id="processor" >
+                    <option value=" ">Choose a processor</option>
+                    {%for item in processor%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = "motherboard">
+            <label for="motherboard">  
+                <select name="motherboard" id="motherboardChoices">
+                    <option value="">Choose a motherboard</option>
+                    {%for item in motherboard%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.price}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div> 
+
+        <div id = "storage-choice">
+            <legend>Choose type of storage.</legend>
+            <label for="ssd">
+                <input type="radio" name = "storage" id = "ssd" onclick="hideHdd(), showSdd()">Solid State Drive
+            </label>
+            <label for="hardisk">
+                <input type="radio" name = "storage" id = "hardisk" onclick="showHdd(), hideSdd()">Hardisk
+            </label>
+        </div>
+
+        <div id = "size-storage">
+            <label for="size-storage"> 
+                <select name="size-storage" id="size-storage-choice" >
+                    <option value="">Pick a storage size:</option>
+                    {%for item in storage%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = "ram-dropdown">
+            <label for="rams">  
+                <select name="rams" id="rams">
+                    <option value="" style="text-align: center;">Pick a RAM</option>
+                    {%for item in ram%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = "graphics-dropdown">
+            <label for="graphics-card">  
+                <select name="graphics-card" id="graphics-card">
+                    <option value="">Choose a graphics-card</option>
+                    {%for item in graphics%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = "powersupply">
+            <label for="powersupply">  
+                <select name="powersupply" id="powersupplyChoices">
+                    <option value="">Choose a powersupply</option>
+                    {%for item in powersupply%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = "pc_case">
+            <label for="pc_case">  
+                <select name="pc_case" id="pc_case_choice">
+                    <option value="">Choose a chassis   </option>
+                    {%for item in chassis%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = "fan">
+            <label for="fan">  
+                <select name="fan" id="fan_choice">
+                    <option value="">Choose a Fan   </option>
+                    {%for item in fan%}
+                    <option id = '{{item.name}}' value='{{item.name}}' title="{{item.name}}">{{item.name}} </option>
+                    {%endfor%}
+                </select>
+            </label>
+        </div>
+
+        <div id = 'button'>
+            <button type="submit" id = "submit_button">Submit</button>
+        </div>
+        
+    </form>
+</article>
+<article class="form-2">
+    <div class = "result-form">
+        <h1>Result</h1>
+        <p>This part will show you the pictures of the items 
+            that is recommended for you and the location or store 
+            where you can find it. 
+        </p>
+
+        <div id = 'results_'>
+            <p id="exp">Expenses: {{D_budget}} </p>
+            <p id="brandProcessor"> Brand of Processor: {{D_model_processor}}</p>
+            <p id="brandMotherboard"> Motherboard:  {{D_motherboard}}</p>
+            <p id="Storagetype">Storage: {{D_storage}}</p>
+            <p id="ramchoice">RAM:  {{D_ram}}</p>
+            <p id="graphics_">Graphics Card: {{D_graphicscard}}</p>
+            <p id="psu_">Power Supply: {{D_powersupply}}</p>
+            <p id="chassis_">Case:  {{D_pccase}}</p>
+            <p id="fan_">Fan: {{D_fan}}</p>
+        </div>
+
+    </div>
+    
+</article>
